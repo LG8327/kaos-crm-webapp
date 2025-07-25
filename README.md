@@ -2,6 +2,8 @@
 
 A modern web-based CRM solution for territory management, lead tracking, and sales analytics. This Next.js application complements the existing iOS app by providing web access to the same core business logic and features.
 
+**🔄 Updated**: Environment variables configured for production deployment
+
 ## 🌟 Features
 
 ### Territory Management
