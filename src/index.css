@@ -1,0 +1,59 @@
+/* src/index.css - Additional iOS-style classes */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply h-full;
+  }
+  
+  body {
+    @apply bg-black text-white font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Safe area for iOS devices */
+  .h-safe-area-inset-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* iOS-style backdrop blur */
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+  
+  /* Custom grey shades for iOS */
+  .bg-gray-750 {
+    background-color: #374151;
+  }
+  
+  .bg-gray-850 {
+    background-color: #1f2937;
+  }
+}
+
+/* iOS-style animations */
+@keyframes ios-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.ios-bounce {
+  animation: ios-bounce 1s ease;
+}
