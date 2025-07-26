@@ -51,7 +51,7 @@ export default function DebugPage() {
           <div className="text-sm text-gray-400">
             <div>SUPABASE_URL should start with: https://abhjpjrwkhmktyneuslz.supabase.co</div>
             <div>SUPABASE_KEY should start with: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</div>
-            <div>MAPBOX_TOKEN should start with: pk.eyJ1IjoibGc4MzI3...</div>
+            <div>MAPBOX_TOKEN should start with: pk.eyJ1IjoibGc4MzI3IiwiYSI6ImNtZDVhcnliNjBueDUyam9sMWQ0dXU5ZWkifQ...</div>
           </div>
         </div>
       </div>
