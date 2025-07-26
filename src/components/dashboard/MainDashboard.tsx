@@ -104,20 +104,7 @@ export const MainDashboard: React.FC = () => {
   const getRightActions = () => {
     switch (selectedTab) {
       case 'dashboard':
-        return [
-          {
-            icon: Plus,
-            label: 'Add New',
-            action: () => alert('Add new item'),
-            color: 'text-purple-400 hover:text-purple-300'
-          },
-          {
-            icon: Search,
-            label: 'Search',
-            action: () => alert('Search'),
-            color: 'text-gray-400 hover:text-white'
-          }
-        ];
+        return []; // Removed plus button and search option from main dashboard
       case 'leads':
         return [
           {
