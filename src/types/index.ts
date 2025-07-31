@@ -1,11 +1,14 @@
 // Core data types matching the iOS Core Data models
 
+// Role types for user management
+export type UserRole = 'Admin' | 'Director' | 'Manager' | 'Sales Rep';
+
 export interface User {
   id: string
   firstName: string
   lastName: string
   email: string
-  role: 'admin' | 'manager' | 'sales' | 'viewer'
+  role: UserRole
   isActive: boolean
   territories?: Territory[]
   leads?: Lead[]

@@ -91,7 +91,7 @@ export const AdminDashboardContent: React.FC = () => {
           <select
             value={selectedPeriod}
             onChange={(e) => setSelectedPeriod(e.target.value)}
-            className="appearance-none bg-gray-750 border border-gray-600 text-white px-4 py-2 pr-8 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="appearance-none bg-white border border-gray-300 text-gray-900 px-4 py-2 pr-8 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option>Today</option>
             <option>This Week</option>
@@ -107,9 +107,9 @@ export const AdminDashboardContent: React.FC = () => {
       {/* Loading Overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gray-800 p-6 rounded-xl flex items-center space-x-3">
-            <RefreshCw className="h-6 w-6 text-purple-400 animate-spin" />
-            <span className="text-white font-medium">Processing...</span>
+          <div className="bg-white p-6 rounded-xl flex items-center space-x-3 shadow-xl">
+            <RefreshCw className="h-6 w-6 text-blue-600 animate-spin" />
+            <span className="text-gray-900 font-medium">Processing...</span>
           </div>
         </div>
       )}
@@ -118,156 +118,156 @@ export const AdminDashboardContent: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <button
           onClick={() => setShowUserManagement(true)}
-          className="p-6 bg-gradient-to-br from-purple-900 to-purple-800 hover:from-purple-800 hover:to-purple-700 rounded-xl text-left transition-all transform hover:scale-105"
+          className="p-6 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl text-left transition-all transform hover:scale-105 shadow-sm"
         >
-          <Users className="h-8 w-8 text-purple-300 mb-3" />
-          <h3 className="text-white font-semibold mb-1">User Management</h3>
-          <p className="text-purple-200 text-sm">Manage users, roles & permissions</p>
+          <Users className="h-8 w-8 text-purple-600 mb-3" />
+          <h3 className="text-gray-900 font-semibold mb-1">User Management</h3>
+          <p className="text-gray-600 text-sm">Manage users, roles & permissions</p>
         </button>
 
         <button
           onClick={() => setShowSystemSettings(true)}
-          className="p-6 bg-gradient-to-br from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 rounded-xl text-left transition-all transform hover:scale-105"
+          className="p-6 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl text-left transition-all transform hover:scale-105 shadow-sm"
         >
-          <Settings className="h-8 w-8 text-blue-300 mb-3" />
-          <h3 className="text-white font-semibold mb-1">System Settings</h3>
-          <p className="text-blue-200 text-sm">Configure system preferences</p>
+          <Settings className="h-8 w-8 text-blue-600 mb-3" />
+          <h3 className="text-gray-900 font-semibold mb-1">System Settings</h3>
+          <p className="text-gray-600 text-sm">Configure system preferences</p>
         </button>
 
         <button
           onClick={() => setShowExportReports(true)}
-          className="p-6 bg-gradient-to-br from-green-900 to-green-800 hover:from-green-800 hover:to-green-700 rounded-xl text-left transition-all transform hover:scale-105"
+          className="p-6 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl text-left transition-all transform hover:scale-105 shadow-sm"
         >
-          <BarChart3 className="h-8 w-8 text-green-300 mb-3" />
-          <h3 className="text-white font-semibold mb-1">Export Reports</h3>
-          <p className="text-green-200 text-sm">Generate and download reports</p>
+          <BarChart3 className="h-8 w-8 text-green-600 mb-3" />
+          <h3 className="text-gray-900 font-semibold mb-1">Export Reports</h3>
+          <p className="text-gray-600 text-sm">Generate and download reports</p>
         </button>
 
         <button
           onClick={() => setShowImportCSV(true)}
-          className="p-6 bg-gradient-to-br from-orange-900 to-orange-800 hover:from-orange-800 hover:to-orange-700 rounded-xl text-left transition-all transform hover:scale-105"
+          className="p-6 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl text-left transition-all transform hover:scale-105 shadow-sm"
         >
-          <Upload className="h-8 w-8 text-orange-300 mb-3" />
-          <h3 className="text-white font-semibold mb-1">Import Data</h3>
-          <p className="text-orange-200 text-sm">Import CSV files and data</p>
+          <Upload className="h-8 w-8 text-orange-600 mb-3" />
+          <h3 className="text-gray-900 font-semibold mb-1">Import Data</h3>
+          <p className="text-gray-600 text-sm">Import CSV files and data</p>
         </button>
       </div>
 
       {/* System Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {/* Users Metrics */}
-        <div className="bg-gray-750 p-6 rounded-xl border border-gray-600">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-purple-900/30 rounded-lg">
-              <Users className="h-6 w-6 text-purple-400" />
+            <div className="p-3 bg-purple-100 rounded-lg">
+              <Users className="h-6 w-6 text-purple-600" />
             </div>
             {isLoading ? (
-              <div className="w-12 h-4 bg-gray-700 animate-pulse rounded"></div>
+              <div className="w-12 h-4 bg-gray-200 animate-pulse rounded"></div>
             ) : (
-              <span className="text-green-400 text-sm font-medium">+{adminStats?.monthlyGrowth || 0}%</span>
+              <span className="text-green-600 text-sm font-medium">+{adminStats?.monthlyGrowth || 0}%</span>
             )}
           </div>
           {isLoading ? (
-            <div className="w-16 h-8 bg-gray-700 animate-pulse rounded mb-1"></div>
+            <div className="w-16 h-8 bg-gray-200 animate-pulse rounded mb-1"></div>
           ) : (
-            <h3 className="text-2xl font-bold text-white mb-1">{adminStats?.totalUsers || 0}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">{adminStats?.totalUsers || 0}</h3>
           )}
-          <p className="text-gray-400 text-sm">Total Users</p>
+          <p className="text-gray-600 text-sm">Total Users</p>
           {isLoading ? (
-            <div className="w-20 h-3 bg-gray-700 animate-pulse rounded mt-1"></div>
+            <div className="w-20 h-3 bg-gray-200 animate-pulse rounded mt-1"></div>
           ) : (
-            <p className="text-green-400 text-xs mt-1">{adminStats?.activeUsers || 0} active</p>
+            <p className="text-green-600 text-xs mt-1">{adminStats?.activeUsers || 0} active</p>
           )}
         </div>
 
         {/* Leads Metrics */}
-        <div className="bg-gray-750 p-6 rounded-xl border border-gray-600">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-blue-900/30 rounded-lg">
-              <Target className="h-6 w-6 text-blue-400" />
+            <div className="p-3 bg-blue-100 rounded-lg">
+              <Target className="h-6 w-6 text-blue-600" />
             </div>
-            <span className="text-green-400 text-sm font-medium">+8.2%</span>
+            <span className="text-green-600 text-sm font-medium">+8.2%</span>
           </div>
           {isLoading ? (
-            <div className="w-16 h-8 bg-gray-700 animate-pulse rounded mb-1"></div>
+            <div className="w-16 h-8 bg-gray-200 animate-pulse rounded mb-1"></div>
           ) : (
-            <h3 className="text-2xl font-bold text-white mb-1">{adminStats?.totalLeads || 0}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">{adminStats?.totalLeads || 0}</h3>
           )}
-          <p className="text-gray-400 text-sm">Total Leads</p>
+          <p className="text-gray-600 text-sm">Total Leads</p>
           {isLoading ? (
-            <div className="w-24 h-3 bg-gray-700 animate-pulse rounded mt-1"></div>
+            <div className="w-24 h-3 bg-gray-200 animate-pulse rounded mt-1"></div>
           ) : (
-            <p className="text-blue-400 text-xs mt-1">{adminStats?.convertedLeads || 0} converted</p>
+            <p className="text-blue-600 text-xs mt-1">{adminStats?.convertedLeads || 0} converted</p>
           )}
         </div>
 
         {/* Revenue Metrics */}
-        <div className="bg-gray-750 p-6 rounded-xl border border-gray-600">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-green-900/30 rounded-lg">
-              <DollarSign className="h-6 w-6 text-green-400" />
+            <div className="p-3 bg-green-100 rounded-lg">
+              <DollarSign className="h-6 w-6 text-green-600" />
             </div>
             {isLoading ? (
-              <div className="w-12 h-4 bg-gray-700 animate-pulse rounded"></div>
+              <div className="w-12 h-4 bg-gray-200 animate-pulse rounded"></div>
             ) : (
-              <span className="text-green-400 text-sm font-medium">+{adminStats?.monthlyGrowth || 0}%</span>
+              <span className="text-green-600 text-sm font-medium">+{adminStats?.monthlyGrowth || 0}%</span>
             )}
           </div>
           {isLoading ? (
-            <div className="w-20 h-8 bg-gray-700 animate-pulse rounded mb-1"></div>
+            <div className="w-20 h-8 bg-gray-200 animate-pulse rounded mb-1"></div>
           ) : (
-            <h3 className="text-2xl font-bold text-white mb-1">
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">
               {DashboardDataService.formatCurrency(adminStats?.totalRevenue || 0)}
             </h3>
           )}
-          <p className="text-gray-400 text-sm">Total Revenue</p>
-          <p className="text-green-400 text-xs mt-1">This month</p>
+          <p className="text-gray-600 text-sm">Total Revenue</p>
+          <p className="text-green-600 text-xs mt-1">This month</p>
         </div>
 
         {/* System Health */}
-        <div className="bg-gray-750 p-6 rounded-xl border border-gray-600">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-emerald-900/30 rounded-lg">
-              <Activity className="h-6 w-6 text-emerald-400" />
+            <div className="p-3 bg-emerald-100 rounded-lg">
+              <Activity className="h-6 w-6 text-emerald-600" />
             </div>
             {isLoading ? (
-              <div className="w-12 h-4 bg-gray-700 animate-pulse rounded"></div>
+              <div className="w-12 h-4 bg-gray-200 animate-pulse rounded"></div>
             ) : (
-              <span className="text-emerald-400 text-sm font-medium">{adminStats?.systemUptime || '0%'}</span>
+              <span className="text-emerald-600 text-sm font-medium">{adminStats?.systemUptime || '0%'}</span>
             )}
           </div>
           {isLoading ? (
-            <div className="w-16 h-8 bg-gray-700 animate-pulse rounded mb-1"></div>
+            <div className="w-16 h-8 bg-gray-200 animate-pulse rounded mb-1"></div>
           ) : (
-            <h3 className="text-2xl font-bold text-white mb-1">{adminStats?.performanceScore || 0}%</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">{adminStats?.performanceScore || 0}%</h3>
           )}
-          <p className="text-gray-400 text-sm">System Health</p>
-          <p className="text-emerald-400 text-xs mt-1">
+          <p className="text-gray-600 text-sm">System Health</p>
+          <p className="text-emerald-600 text-xs mt-1">
             {adminStats?.criticalAlerts === 0 ? 'All systems operational' : `${adminStats?.criticalAlerts || 0} alerts`}
           </p>
         </div>
       </div>
 
       {/* System Operations */}
-      <div className="bg-gray-750 p-8 rounded-xl border border-gray-600 mb-8">
-        <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-          <Database className="h-8 w-8 text-purple-400 mr-3" />
+      <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm mb-8">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <Database className="h-8 w-8 text-blue-600 mr-3" />
           System Operations
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
-            <div className="bg-blue-900/20 p-6 rounded-xl mb-4">
-              <RefreshCw className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-white mb-2">System Refresh</h4>
-              <p className="text-gray-400 text-sm mb-4">
+            <div className="bg-blue-50 p-6 rounded-xl mb-4 border border-blue-100">
+              <RefreshCw className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">System Refresh</h4>
+              <p className="text-gray-600 text-sm mb-4">
                 Refresh all system caches and reload configurations for optimal performance.
               </p>
             </div>
             <button
               onClick={loadAdminStats}
               disabled={isLoading}
-              className="px-6 py-3 bg-blue-900 hover:bg-blue-800 text-blue-300 font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto"
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto shadow-sm"
             >
               <RefreshCw className="h-5 w-5 mr-2" />
               Refresh System
@@ -275,17 +275,17 @@ export const AdminDashboardContent: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <div className="bg-green-900/20 p-6 rounded-xl mb-4">
-              <Download className="h-12 w-12 text-green-400 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-white mb-2">Data Backup</h4>
-              <p className="text-gray-400 text-sm mb-4">
+            <div className="bg-green-50 p-6 rounded-xl mb-4 border border-green-100">
+              <Download className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Data Backup</h4>
+              <p className="text-gray-600 text-sm mb-4">
                 Create a complete backup of all system data for security and recovery purposes.
               </p>
             </div>
             <button
               onClick={handleDataBackup}
               disabled={isLoading}
-              className="px-6 py-3 bg-green-900 hover:bg-green-800 text-green-300 font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto"
+              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto shadow-sm"
             >
               <Download className="h-5 w-5 mr-2" />
               Backup Data
@@ -293,17 +293,17 @@ export const AdminDashboardContent: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <div className="bg-orange-900/20 p-6 rounded-xl mb-4">
-              <RotateCcw className="h-12 w-12 text-orange-400 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-white mb-2">Reset Settings</h4>
-              <p className="text-gray-400 text-sm mb-4">
+            <div className="bg-orange-50 p-6 rounded-xl mb-4 border border-orange-100">
+              <RotateCcw className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Reset Settings</h4>
+              <p className="text-gray-600 text-sm mb-4">
                 Reset all system settings to default values. This will not affect user data.
               </p>
             </div>
             <button
               onClick={handleSystemReset}
               disabled={isLoading}
-              className="px-6 py-3 bg-orange-900 hover:bg-orange-800 text-orange-300 font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto"
+              className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto shadow-sm"
             >
               <RotateCcw className="h-5 w-5 mr-2" />
               Reset Settings

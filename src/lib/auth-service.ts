@@ -1,7 +1,7 @@
 // src/lib/auth-service.ts - Role-based Authentication and Authorization
 import { supabase } from './supabase';
 
-export type UserRole = 'admin' | 'manager' | 'sales_rep' | 'hr';
+export type UserRole = 'Admin' | 'Director' | 'Manager' | 'Sales Rep';
 
 export interface AuthUser {
   id: string;
@@ -10,8 +10,8 @@ export interface AuthUser {
   lastName: string;
   role: UserRole;
   isActive: boolean;
-  territories?: string[]; // For sales_rep role - assigned territory IDs
-  managedTerritories?: string[]; // For manager role - territories they manage
+  territories?: string[]; // For Sales Rep role - assigned territory IDs
+  managedTerritories?: string[]; // For Manager role - territories they manage
 }
 
 export interface AuthSession {
@@ -22,7 +22,7 @@ export interface AuthSession {
 
 // Role permissions mapping
 export const ROLE_PERMISSIONS = {
-  admin: {
+  'Admin': {
     pages: ['dashboard', 'leads', 'territories', 'management', 'admin', 'settings'],
     canViewAllTerritories: true,
     canViewAllLeads: true,
@@ -30,7 +30,15 @@ export const ROLE_PERMISSIONS = {
     canManageRoles: true,
     canAccessAdmin: true
   },
-  manager: {
+  'Director': {
+    pages: ['dashboard', 'leads', 'territories', 'management', 'admin', 'settings'],
+    canViewAllTerritories: true,
+    canViewAllLeads: true,
+    canManageUsers: true,
+    canManageRoles: true,
+    canAccessAdmin: true
+  },
+  'Manager': {
     pages: ['dashboard', 'leads', 'territories', 'management', 'settings'],
     canViewAllTerritories: true, // Managers can see all territories
     canViewAllLeads: true, // Managers can see all leads
@@ -38,21 +46,13 @@ export const ROLE_PERMISSIONS = {
     canManageRoles: false,
     canAccessAdmin: false
   },
-  sales_rep: {
+  'Sales Rep': {
     pages: ['dashboard', 'leads', 'territories', 'settings'],
     canViewAllTerritories: false, // Only assigned territories
     canViewAllLeads: false, // Only leads in assigned territories
     canManageUsers: false,
     canManageRoles: false,
     canAccessAdmin: false
-  },
-  hr: {
-    pages: ['dashboard', 'leads', 'territories', 'admin', 'settings'],
-    canViewAllTerritories: true,
-    canViewAllLeads: true,
-    canManageUsers: true,
-    canManageRoles: true,
-    canAccessAdmin: true
   }
 };
 
@@ -194,12 +194,14 @@ class AuthService {
   }
 
   // Authorization Methods
-  hasPermission(permission: keyof Omit<typeof ROLE_PERMISSIONS.admin, 'pages'>): boolean {
+  hasPermission(permission: keyof Omit<typeof ROLE_PERMISSIONS.Admin, 'pages'>): boolean {
     const user = this.getCurrentUser();
     if (!user) return false;
 
     const permissions = ROLE_PERMISSIONS[user.role];
-    const value = permissions[permission];
+    if (!permissions) return false;
+    
+    const value = permissions[permission as keyof typeof permissions];
     return typeof value === 'boolean' ? value : false;
   }
 
@@ -272,14 +274,14 @@ class AuthService {
     if (!user) return '/';
 
     switch (user.role) {
-      case 'admin':
+      case 'Admin':
         return '/admin'; // Admin goes to admin dashboard
-      case 'manager':
+      case 'Director':
+        return '/admin'; // Director goes to admin dashboard
+      case 'Manager':
         return '/management'; // Manager goes to management dashboard
-      case 'sales_rep':
+      case 'Sales Rep':
         return '/leads'; // Sales rep goes to leads (their main focus)
-      case 'hr':
-        return '/admin'; // HR goes to admin dashboard
       default:
         return '/dashboard';
     }
@@ -292,7 +294,7 @@ export const authService = new AuthService();
 // Convenience functions
 export const getCurrentUser = () => authService.getCurrentUser();
 export const getCurrentSession = () => authService.getCurrentSession();
-export const hasPermission = (permission: keyof Omit<typeof ROLE_PERMISSIONS.admin, 'pages'>) => 
+export const hasPermission = (permission: keyof Omit<typeof ROLE_PERMISSIONS.Admin, 'pages'>) => 
   authService.hasPermission(permission);
 export const canAccessPage = (pageId: string) => authService.canAccessPage(pageId);
 export const getVisibleTerritories = () => authService.getVisibleTerritories();
