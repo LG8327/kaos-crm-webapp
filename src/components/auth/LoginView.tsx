@@ -83,14 +83,14 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Background Lightning Effect */}
       {showLightning && (
         <div className="fixed inset-0 pointer-events-none z-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 animate-pulse"></div>
-          <div className="absolute top-1/4 left-1/4 w-1 h-32 bg-purple-400 transform rotate-45 animate-ping"></div>
-          <div className="absolute top-1/3 right-1/3 w-1 h-24 bg-blue-400 transform -rotate-12 animate-ping delay-150"></div>
-          <div className="absolute bottom-1/3 left-1/2 w-1 h-28 bg-purple-500 transform rotate-12 animate-ping delay-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-200/20 via-gray-300/20 to-gray-200/20 animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-1 h-32 bg-gray-400 transform rotate-45 animate-ping"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-24 bg-gray-400 transform -rotate-12 animate-ping delay-150"></div>
+          <div className="absolute bottom-1/3 left-1/2 w-1 h-28 bg-gray-400 transform rotate-12 animate-ping delay-300"></div>
         </div>
       )}
 
@@ -99,7 +99,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
         <div className="text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="relative">
-              <Zap className="h-20 w-20 text-purple-500 animate-pulse" />
+              <Zap className="h-20 w-20 text-teal-500 animate-pulse" />
               <div className="absolute inset-0 h-20 w-20 text-purple-300 animate-ping opacity-20">
                 <Zap className="h-20 w-20" />
               </div>
@@ -114,7 +114,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
             Next-Generation Territory Management
           </p>
           
-          <div className="text-sm text-purple-400 font-medium tracking-wide">
+          <div className="text-sm text-teal-400 font-medium tracking-wide">
             &ldquo;Conquer Chaos. Command Territory.&rdquo;
           </div>
         </div>
@@ -144,7 +144,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="relative block w-full px-4 py-3 bg-gray-900/50 border border-gray-700 placeholder-gray-400 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+                className="relative block w-full px-4 py-3 bg-white border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200"
                 placeholder="Email address"
               />
             </div>
@@ -162,7 +162,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full px-4 py-3 pr-12 bg-gray-900/50 border border-gray-700 placeholder-gray-400 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+                className="block w-full px-4 py-3 pr-12 bg-white border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200"
                 placeholder="Password"
               />
               <button
@@ -196,10 +196,10 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
               onMouseLeave={() => setIsButtonPressed(false)}
               className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white transition-all duration-200 ${
                 isLoading
-                  ? 'bg-purple-600 cursor-not-allowed'
+                  ? 'bg-teal-600 cursor-not-allowed'
                   : isButtonPressed
                   ? 'bg-purple-700 transform scale-95'
-                  : 'bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 hover:scale-105'
+                  : 'bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 hover:scale-105'
               } backdrop-blur-sm`}
             >
               {isLoading ? (
@@ -222,7 +222,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
           <div className="text-center">
             <button
               type="button"
-              className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors"
+              className="text-teal-400 hover:text-purple-300 text-sm font-medium transition-colors"
               onClick={() => {
                 // TODO: Implement forgot password functionality
                 alert('Forgot password functionality will be implemented');

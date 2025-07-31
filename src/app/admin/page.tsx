@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '../../lib/supabase';
 import { AdminDashboardContent } from '../../components/admin/AdminDashboardContent';
-import { AppLayout } from '../../components/layout/AppLayout';
+import { SharedLayout } from '../../components/layout/SharedLayout';
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -76,7 +76,7 @@ export default function AdminPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
       </div>
     );
   }
@@ -93,11 +93,8 @@ export default function AdminPage() {
   }
 
   return (
-    <AppLayout
-      selectedTab={selectedTab}
-      onTabChange={handleTabChange}
-    >
+    <SharedLayout selectedTab="admin" title="Admin Dashboard">
       <AdminDashboardContent />
-    </AppLayout>
+    </SharedLayout>
   );
 }

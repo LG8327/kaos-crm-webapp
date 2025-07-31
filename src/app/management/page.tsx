@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '../../lib/supabase';
 import { ManagementDashboard } from '../../components/management/ManagementDashboard';
-import { AppLayout } from '../../components/layout/AppLayout';
+import { SharedLayout } from '../../components/layout/SharedLayout';
 
 export default function ManagementPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -86,35 +86,27 @@ export default function ManagementPage() {
   // Show access denied if not authenticated or authorized
   if (!isAuthenticated) {
     return (
-      <AppLayout 
-        selectedTab={selectedTab} 
-        onTabChange={handleTabChange}
-        userRole={userRole}
-      >
-        <div className="min-h-screen bg-black flex items-center justify-center">
+      <SharedLayout selectedTab="management" title="Management Dashboard">
+        <div className="min-h-screen bg-white flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-white mb-4">Access Denied</h1>
-            <p className="text-gray-400 mb-6">You need manager or higher privileges to access this page.</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Access Denied</h1>
+            <p className="text-gray-600 mb-6">You need manager or higher privileges to access this page.</p>
             <button
               onClick={() => router.push('/dashboard')}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors"
+              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors"
             >
               Go to Dashboard
             </button>
           </div>
         </div>
-      </AppLayout>
+      </SharedLayout>
     );
   }
 
   // Show management dashboard
   return (
-    <AppLayout 
-      selectedTab={selectedTab} 
-      onTabChange={handleTabChange}
-      userRole={userRole}
-    >
+    <SharedLayout selectedTab="management" title="Management Dashboard">
       <ManagementDashboard userRole={userRole} />
-    </AppLayout>
+    </SharedLayout>
   );
 }

@@ -108,7 +108,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold text-white flex items-center">
-            <Settings className="h-6 w-6 mr-3 text-purple-400" />
+            <Settings className="h-6 w-6 mr-3 text-teal-400" />
             System Settings
           </h2>
           <button
@@ -132,7 +132,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center px-6 py-4 font-medium transition-colors whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'text-purple-400 border-b-2 border-purple-400'
+                  ? 'text-teal-400 border-b-2 border-purple-400'
                   : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -155,7 +155,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     type="text"
                     value={settings.siteName}
                     onChange={(e) => updateSettings('siteName', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
                 <div>
@@ -166,7 +166,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     type="url"
                     value={settings.siteUrl}
                     onChange={(e) => updateSettings('siteUrl', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
                 <div>
@@ -177,7 +177,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     type="email"
                     value={settings.adminEmail}
                     onChange={(e) => updateSettings('adminEmail', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
                 <div>
@@ -190,7 +190,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     max="120"
                     value={settings.autoLogout}
                     onChange={(e) => updateSettings('autoLogout', parseInt(e.target.value))}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
               </div>
@@ -207,7 +207,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     onChange={(e) => updateSettings('maintenanceMode', e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
                 </label>
               </div>
             </div>
@@ -228,7 +228,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                       max="32"
                       value={settings.passwordPolicy.minLength}
                       onChange={(e) => updateSettings('passwordPolicy.minLength', parseInt(e.target.value))}
-                      className="w-32 px-4 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-32 px-4 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
                   
@@ -246,7 +246,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                           onChange={(e) => updateSettings(`passwordPolicy.${policy.key}`, e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                        <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
                       </label>
                     </div>
                   ))}
@@ -269,7 +269,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     onChange={(e) => updateSettings('backupEnabled', e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
                 </label>
               </div>
 
@@ -281,7 +281,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                   <select
                     value={settings.backupFrequency}
                     onChange={(e) => updateSettings('backupFrequency', e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   >
                     <option value="hourly">Hourly</option>
                     <option value="daily">Daily</option>
@@ -307,7 +307,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     onChange={(e) => updateSettings('emailNotifications', e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
                 </label>
               </div>
 
@@ -323,7 +323,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
                     onChange={(e) => updateSettings('smsNotifications', e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                  <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600"></div>
                 </label>
               </div>
             </div>
@@ -350,7 +350,7 @@ export const SystemSettingsModal: React.FC<SystemSettingsModalProps> = ({ onClos
             <button
               onClick={handleSaveSettings}
               disabled={loading}
-              className="flex items-center px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>

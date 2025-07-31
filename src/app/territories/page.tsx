@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '../../lib/supabase';
 import { TerritoriesManagement } from '../../components/territories/TerritoriesManagement';
-import { AppLayout } from '../../components/layout/AppLayout';
+import { SharedLayout } from '../../components/layout/SharedLayout';
 
 export default function TerritoriesPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -61,8 +61,8 @@ export default function TerritoriesPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white">Loading...</div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
       </div>
     );
   }
@@ -72,11 +72,8 @@ export default function TerritoriesPage() {
   }
 
   return (
-    <AppLayout
-      selectedTab={selectedTab}
-      onTabChange={handleTabChange}
-    >
+    <SharedLayout selectedTab="territories" title="Territory Management">
       <TerritoriesManagement />
-    </AppLayout>
+    </SharedLayout>
   );
 }

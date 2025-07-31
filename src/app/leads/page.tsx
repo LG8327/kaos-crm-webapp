@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '../../lib/supabase';
 import { LeadsManagement } from '../../components/leads/LeadsManagement';
-import { AppLayout } from '../../components/layout/AppLayout';
+import { SharedLayout } from '../../components/layout/SharedLayout';
 
 export default function LeadsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -61,8 +61,8 @@ export default function LeadsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
       </div>
     );
   }
@@ -72,11 +72,8 @@ export default function LeadsPage() {
   }
 
   return (
-    <AppLayout
-      selectedTab={selectedTab}
-      onTabChange={handleTabChange}
-    >
+    <SharedLayout selectedTab="leads" title="Leads Management">
       <LeadsManagement />
-    </AppLayout>
+    </SharedLayout>
   );
 }

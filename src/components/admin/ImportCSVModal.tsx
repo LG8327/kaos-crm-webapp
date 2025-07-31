@@ -60,25 +60,26 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({ onClose, onSucce
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-900 rounded-xl border border-gray-700 w-full max-w-2xl">
-        <div className="flex items-center justify-between p-6 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white flex items-center">
-            <Upload className="h-6 w-6 mr-3 text-blue-400" />
+      <div className="bg-white rounded-lg border border-gray-200 w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl">
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+            <Upload className="h-6 w-6 mr-2 text-blue-600" />
             Import CSV Data
           </h2>
-          <button onClick={onClose} className="p-2 text-gray-400 hover:text-white transition-colors">
-            <X className="h-6 w-6" />
+          <button onClick={onClose} className="p-2 text-gray-500 hover:text-gray-700 transition-colors">
+            <X className="h-5 w-5" />
           </button>
         </div>
 
         <div className="p-6 space-y-6">
           {/* Import Type */}
           <div>
-            <label className="block text-white font-medium mb-2">Import Type</label>
+            <label className="block text-gray-900 font-medium mb-2">Import Type</label>
             <select
               value={importType}
               onChange={(e) => setImportType(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900"
             >
               <option value="leads">Leads</option>
               <option value="users">Users</option>
@@ -88,10 +89,10 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({ onClose, onSucce
 
           {/* File Upload */}
           <div>
-            <label className="block text-white font-medium mb-2">CSV File</label>
+            <label className="block text-gray-900 font-medium mb-2">CSV File</label>
             <div 
               onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-purple-500 transition-colors"
+              className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-blue-500 transition-colors"
             >
               <input
                 ref={fileInputRef}
@@ -103,17 +104,17 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({ onClose, onSucce
               
               {file ? (
                 <div className="flex items-center justify-center">
-                  <FileText className="h-8 w-8 text-green-400 mr-3" />
+                  <FileText className="h-8 w-8 text-green-600 mr-3" />
                   <div>
-                    <p className="text-white font-medium">{file.name}</p>
-                    <p className="text-gray-400 text-sm">{(file.size / 1024).toFixed(1)} KB</p>
+                    <p className="text-gray-900 font-medium">{file.name}</p>
+                    <p className="text-gray-600 text-sm">{(file.size / 1024).toFixed(1)} KB</p>
                   </div>
                 </div>
               ) : (
                 <div>
                   <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-white mb-2">Click to select CSV file</p>
-                  <p className="text-gray-400 text-sm">or drag and drop your file here</p>
+                  <p className="text-gray-900 mb-2">Click to select CSV file</p>
+                  <p className="text-gray-600 text-sm">or drag and drop your file here</p>
                 </div>
               )}
             </div>
@@ -121,27 +122,27 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({ onClose, onSucce
 
           {/* Upload Progress */}
           {isUploading && (
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-white">Uploading...</span>
-                <span className="text-white">{uploadProgress}%</span>
+            <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-blue-900">Uploading...</span>
+                <span className="text-blue-900">{uploadProgress}%</span>
               </div>
-              <div className="w-full bg-gray-700 rounded-full h-2">
+              <div className="w-full bg-blue-200 rounded-full h-2">
                 <div 
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-300"
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${uploadProgress}%` }}
-                ></div>
+                />
               </div>
             </div>
           )}
 
-          {/* Instructions */}
-          <div className="bg-gray-800 rounded-lg p-4">
-            <div className="flex items-start">
-              <AlertCircle className="h-5 w-5 text-yellow-400 mr-3 mt-0.5 flex-shrink-0" />
+          {/* Format Information */}
+          <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+            <div className="flex items-start space-x-3">
+              <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
               <div>
-                <h4 className="text-white font-medium mb-2">CSV Format Requirements</h4>
-                <ul className="text-gray-400 text-sm space-y-1">
+                <h4 className="text-gray-900 font-medium mb-2">CSV Format Requirements</h4>
+                <ul className="text-gray-600 text-sm space-y-1">
                   <li>• First row must contain column headers</li>
                   <li>• Use comma-separated values format</li>
                   <li>• Ensure all required fields are included</li>
@@ -152,10 +153,10 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({ onClose, onSucce
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end space-x-4 pt-4 border-t border-gray-700">
+          <div className="flex justify-end space-x-4 pt-4 border-t border-gray-200">
             <button
               onClick={onClose}
-              className="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-xl text-white transition-colors"
+              className="px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-gray-700 transition-colors border border-gray-300"
             >
               Cancel
             </button>

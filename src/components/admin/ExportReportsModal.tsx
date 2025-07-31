@@ -67,7 +67,7 @@ export const ExportReportsModal: React.FC<ExportReportsModalProps> = ({ onClose 
                         setSelectedReports(prev => prev.filter(id => id !== report.id));
                       }
                     }}
-                    className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500 mr-3"
+                    className="w-5 h-5 text-purple-600 rounded focus:ring-teal-500 mr-3"
                   />
                   <report.icon className="h-5 w-5 text-gray-400 mr-3" />
                   <div>

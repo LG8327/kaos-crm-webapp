@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "header": "John Smith - Tech Solutions Inc.",
+    "type": "lead",
+    "status": "new",
+    "target": "$25,000",
+    "limit": "30 days",
+    "reviewer": "Sarah Wilson"
+  },
+  {
+    "id": 2, 
+    "header": "Maria Garcia - Digital Marketing Pro",
+    "type": "lead",
+    "status": "qualified",
+    "target": "$18,500",
+    "limit": "15 days",
+    "reviewer": "Mike Johnson"
+  },
+  {
+    "id": 3,
+    "header": "David Chen - E-commerce Solutions",
+    "type": "lead", 
+    "status": "contacted",
+    "target": "$32,000",
+    "limit": "45 days",
+    "reviewer": "Sarah Wilson"
+  },
+  {
+    "id": 4,
+    "header": "Downtown Business District",
+    "type": "territory",
+    "status": "active",
+    "target": "85% coverage",
+    "limit": "Q1 2024",
+    "reviewer": "Regional Manager"
+  },
+  {
+    "id": 5,
+    "header": "North Industrial Zone",
+    "type": "territory",
+    "status": "expanding",
+    "target": "12 new leads",
+    "limit": "Q2 2024", 
+    "reviewer": "Territory Lead"
+  },
+  {
+    "id": 6,
+    "header": "GlobalTech Enterprise",
+    "type": "account",
+    "status": "active",
+    "target": "$150,000",
+    "limit": "Annual contract",
+    "reviewer": "Account Manager"
+  },
+  {
+    "id": 7,
+    "header": "StartupHub Incubator",
+    "type": "account",
+    "status": "renewal",
+    "target": "$75,000",
+    "limit": "6 months",
+    "reviewer": "Sales Director"
+  },
+  {
+    "id": 8,
+    "header": "Jennifer Brown - Consulting Services",
+    "type": "lead",
+    "status": "negotiation",
+    "target": "$45,000",
+    "limit": "20 days",
+    "reviewer": "Mike Johnson"
+  },
+  {
+    "id": 9,
+    "header": "Suburban Retail Corridor",
+    "type": "territory",
+    "status": "planning",
+    "target": "New territory",
+    "limit": "Q3 2024",
+    "reviewer": "Regional Manager"
+  },
+  {
+    "id": 10,
+    "header": "Robert Taylor - Manufacturing Corp",
+    "type": "lead",
+    "status": "proposal",
+    "target": "$67,500",
+    "limit": "10 days",
+    "reviewer": "Sarah Wilson"
+  },
+  {
+    "id": 11,
+    "header": "LocalBiz Network",
+    "type": "account",
+    "status": "expanding",
+    "target": "$95,000",
+    "limit": "Quarterly review",
+    "reviewer": "Account Manager"
+  },
+  {
+    "id": 12,
+    "header": "Lisa Kim - Creative Agency",
+    "type": "lead",
+    "status": "follow-up",
+    "target": "$28,000",
+    "limit": "7 days",
+    "reviewer": "Mike Johnson"
+  }
+]

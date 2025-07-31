@@ -59,7 +59,7 @@ export default function DebugPage() {
       <div className="mt-6">
         <button 
           onClick={() => window.location.href = '/territories'}
-          className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded"
+          className="bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded"
         >
           Test Territories Page
         </button>

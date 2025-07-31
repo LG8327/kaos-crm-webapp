@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '../../lib/supabase';
 import { SettingsView } from '../../components/settings/SettingsView';
-import { AppLayout } from '../../components/layout/AppLayout';
+import { SharedLayout } from '../../components/layout/SharedLayout';
 
 export default function SettingsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -62,7 +62,7 @@ export default function SettingsPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
       </div>
     );
   }
@@ -72,11 +72,8 @@ export default function SettingsPage() {
   }
 
   return (
-    <AppLayout
-      selectedTab={selectedTab}
-      onTabChange={handleTabChange}
-    >
+    <SharedLayout selectedTab="settings" title="Settings">
       <SettingsView />
-    </AppLayout>
+    </SharedLayout>
   );
 }
