@@ -21,11 +21,11 @@ export const TopStatusBar: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-between px-4 py-2 text-white text-sm font-medium">
+    <div className="flex items-center justify-between px-4 py-2 text-gray-900 text-sm font-medium bg-white border-b border-gray-200">
       {/* Left side - Time and Date */}
       <div className="flex items-center space-x-2">
         <span>{getCurrentTime()}</span>
-        <span className="text-gray-400">{getCurrentDate()}</span>
+        <span className="text-gray-600">{getCurrentDate()}</span>
       </div>
 
       {/* Right side - Empty for cleaner look */}

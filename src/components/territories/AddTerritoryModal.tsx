@@ -121,16 +121,16 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-900 rounded-lg border border-gray-800 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-white rounded-lg border border-gray-200 w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-xl">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-800">
-          <h2 className="text-xl font-bold text-white flex items-center">
-            <MapPin className="h-6 w-6 mr-2 text-purple-500" />
+        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <h2 className="text-xl font-bold text-gray-900 flex items-center">
+            <MapPin className="h-6 w-6 mr-2 text-blue-600" />
             Add New Territory
           </h2>
           <button
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-white transition-colors"
+            className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -143,10 +143,10 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
             <div className="space-y-6">
               {/* Basic Information */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Basic Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Territory Name *
                     </label>
                     <input
@@ -154,13 +154,13 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                       required
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Enter territory name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Color
                     </label>
                     <div className="flex items-center space-x-2">
@@ -168,18 +168,18 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                         type="color"
                         value={formData.color}
                         onChange={(e) => setFormData(prev => ({ ...prev, color: e.target.value }))}
-                        className="w-12 h-10 bg-gray-800 border border-gray-700 rounded cursor-pointer"
+                        className="w-12 h-10 bg-white border border-gray-300 rounded cursor-pointer"
                       />
                       <input
                         type="text"
                         value={formData.color}
                         onChange={(e) => setFormData(prev => ({ ...prev, color: e.target.value }))}
-                        className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                       <button
                         type="button"
                         onClick={generateRandomColor}
-                        className="px-3 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-sm transition-colors"
+                        className="px-3 py-2 bg-teal-600 hover:bg-teal-700 rounded-lg text-white text-sm transition-colors"
                       >
                         Random
                       </button>
@@ -194,7 +194,7 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                       rows={3}
                       value={formData.description}
                       onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       placeholder="Territory description (optional)"
                     />
                   </div>
@@ -203,16 +203,16 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
 
               {/* Assignment */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Assignment</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Assignment</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Assign To
                     </label>
                     <select
                       value={formData.assigned_to_id}
                       onChange={(e) => setFormData(prev => ({ ...prev, assigned_to_id: e.target.value }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Select User (Optional)</option>
                       {users.map(user => (
@@ -222,13 +222,13 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Status
                     </label>
                     <select
                       value={formData.is_active ? 'active' : 'inactive'}
                       onChange={(e) => setFormData(prev => ({ ...prev, is_active: e.target.value === 'active' }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="active">Active</option>
                       <option value="inactive">Inactive</option>
@@ -239,10 +239,10 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
 
               {/* Geographic Information */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Geographic Center</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Geographic Center</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Latitude
                     </label>
                     <input
@@ -250,13 +250,13 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                       step="0.000001"
                       value={formData.center_lat}
                       onChange={(e) => setFormData(prev => ({ ...prev, center_lat: parseFloat(e.target.value) }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="29.7604"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Longitude
                     </label>
                     <input
@@ -264,13 +264,13 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                       step="0.000001"
                       value={formData.center_lng}
                       onChange={(e) => setFormData(prev => ({ ...prev, center_lng: parseFloat(e.target.value) }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="-95.3698"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Default Zoom Level
                     </label>
                     <input
@@ -279,7 +279,7 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
                       max="20"
                       value={formData.zoom_level}
                       onChange={(e) => setFormData(prev => ({ ...prev, zoom_level: parseInt(e.target.value) }))}
-                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -289,14 +289,14 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
             {/* Right Column - Map */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">Territory Boundaries</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Territory Boundaries</h3>
                 <button
                   type="button"
                   onClick={() => setShowBoundaryDrawer(!showBoundaryDrawer)}
                   className={`flex items-center px-3 py-2 rounded-lg text-sm transition-colors ${
                     showBoundaryDrawer
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
                   }`}
                 >
                   <Map className="h-4 w-4 mr-2" />
@@ -312,34 +312,34 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
               )}
 
               {drawnBoundary && (
-                <div className="mt-4 p-3 bg-gray-800/50 rounded-lg border border-gray-700">
+                <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
                   <div className="flex items-center justify-between">
-                    <span className="text-green-400 text-sm font-medium">
+                    <span className="text-green-700 text-sm font-medium">
                       ✓ Boundary drawn successfully
                     </span>
                     <button
                       type="button"
                       onClick={() => setDrawnBoundary(null)}
-                      className="text-red-400 hover:text-red-300 text-sm"
+                      className="text-red-600 hover:text-red-700 text-sm"
                     >
                       Clear
                     </button>
                   </div>
-                  <p className="text-gray-400 text-xs mt-1">
+                  <p className="text-green-600 text-xs mt-1">
                     {drawnBoundary.geometry.coordinates[0].length} boundary points
                   </p>
                 </div>
               )}
 
               {!showBoundaryDrawer && !drawnBoundary && (
-                <div className="h-96 bg-gray-800/30 rounded-lg border-2 border-dashed border-gray-700 flex items-center justify-center">
+                <div className="h-96 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
                   <div className="text-center">
-                    <Map className="h-12 w-12 text-gray-600 mx-auto mb-2" />
-                    <p className="text-gray-400 mb-2">Draw territory boundaries</p>
+                    <Map className="h-12 w-12 text-gray-400 mx-auto mb-2" />
+                    <p className="text-gray-600 mb-2">Draw territory boundaries</p>
                     <button
                       type="button"
                       onClick={() => setShowBoundaryDrawer(true)}
-                      className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-sm transition-colors"
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm transition-colors"
                     >
                       Start Drawing
                     </button>
@@ -350,18 +350,18 @@ export const AddTerritoryModal: React.FC<AddTerritoryModalProps> = ({ onClose, o
           </div>
 
           {/* Form Actions */}
-          <div className="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-800">
+          <div className="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-lg text-white transition-colors"
+              className="px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 transition-colors border border-gray-300"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors disabled:opacity-50"
+              className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors disabled:opacity-50"
             >
               <Save className="h-4 w-4 mr-2" />
               {isLoading ? 'Creating...' : 'Create Territory'}

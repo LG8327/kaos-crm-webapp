@@ -32,16 +32,16 @@ export const SettingsView: React.FC = () => {
       <div className="max-w-2xl">
         {settingsGroups.map((group, groupIndex) => (
           <div key={groupIndex} className="mb-8">
-            <h3 className="text-lg font-semibold text-white mb-4">{group.title}</h3>
-            <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{group.title}</h3>
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
               {group.items.map((item, index) => (
                 <button
                   key={index}
                   onClick={item.action}
-                  className="w-full flex items-center space-x-4 p-4 hover:bg-gray-750 transition-colors border-b border-gray-700 last:border-b-0"
+                  className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 transition-colors border-b border-gray-200 last:border-b-0"
                 >
-                  <item.icon className="h-6 w-6 text-gray-400" />
-                  <span className="text-white font-medium">{item.label}</span>
+                  <item.icon className="h-6 w-6 text-gray-600" />
+                  <span className="text-gray-900 font-medium">{item.label}</span>
                 </button>
               ))}
             </div>

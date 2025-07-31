@@ -324,21 +324,21 @@ export const LeadsManagement: React.FC = () => {
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
-      case 'hot': return 'text-red-400 bg-red-900/20';
-      case 'warm': return 'text-yellow-400 bg-yellow-900/20';
-      case 'cold': return 'text-blue-400 bg-blue-900/20';
+      case 'hot': return 'text-gray-700 bg-gray-100 border border-gray-200';
+      case 'warm': return 'text-gray-700 bg-gray-100 border border-gray-200';
+      case 'cold': return 'text-gray-700 bg-gray-100 border border-gray-200';
       case 'solved':
-      case 'won': return 'text-green-400 bg-green-900/20';
-      case 'lost': return 'text-gray-400 bg-gray-900/20';
-      default: return 'text-gray-400 bg-gray-900/20';
+      case 'won': return 'text-gray-700 bg-gray-100 border border-gray-200';
+      case 'lost': return 'text-gray-600 bg-gray-50 border border-gray-200';
+      default: return 'text-gray-600 bg-gray-50 border border-gray-200';
     }
   };
 
   const getLeadScoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-400';
-    if (score >= 60) return 'text-yellow-400';
-    if (score >= 40) return 'text-orange-400';
-    return 'text-red-400';
+    if (score >= 80) return 'text-gray-700';
+    if (score >= 60) return 'text-gray-600';
+    if (score >= 40) return 'text-gray-600';
+    return 'text-gray-500';
   };
 
   const formatCurrency = (amount: number) => {
@@ -365,10 +365,10 @@ export const LeadsManagement: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin h-12 w-12 border-2 border-purple-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading leads...</p>
+          <div className="animate-spin h-12 w-12 border-2 border-gray-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-gray-900 text-lg">Loading leads...</p>
         </div>
       </div>
     );
@@ -387,7 +387,7 @@ export const LeadsManagement: React.FC = () => {
           
           <button
             onClick={() => setShowAddModal(true)}
-            className="flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-medium transition-colors"
+            className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
           >
             <Plus className="h-5 w-5 mr-2" />
             Add New Lead
@@ -395,7 +395,7 @@ export const LeadsManagement: React.FC = () => {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800 mb-6">
+        <div className="bg-white rounded-lg p-6 border border-gray-200 mb-6 shadow-sm">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* Search */}
             <div className="flex-1 relative">
@@ -405,7 +405,7 @@ export const LeadsManagement: React.FC = () => {
                 placeholder="Search leads by name, company, email, or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
               />
             </div>
 
@@ -414,8 +414,8 @@ export const LeadsManagement: React.FC = () => {
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center px-4 py-2 rounded-lg border transition-colors ${
                 showFilters 
-                  ? 'bg-purple-600 border-purple-600 text-white' 
-                  : 'bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700'
+                  ? 'bg-blue-600 border-blue-600 text-white' 
+                  : 'bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200'
               }`}
             >
               <Filter className="h-4 w-4 mr-2" />
@@ -425,12 +425,12 @@ export const LeadsManagement: React.FC = () => {
 
           {/* Expanded Filters */}
           {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-4 pt-4 border-t border-gray-700">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mt-4 pt-4 border-t border-gray-200">
               {/* Status Filter */}
               <select
                 value={filters.status}
                 onChange={(e) => setFilters(prev => ({ ...prev, status: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">All Status</option>
                 <option value="Hot">Hot</option>
@@ -445,7 +445,7 @@ export const LeadsManagement: React.FC = () => {
               <select
                 value={filters.assignedTo}
                 onChange={(e) => setFilters(prev => ({ ...prev, assignedTo: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">All Users</option>
                 {users.map(user => (
@@ -457,7 +457,7 @@ export const LeadsManagement: React.FC = () => {
               <select
                 value={filters.territory}
                 onChange={(e) => setFilters(prev => ({ ...prev, territory: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">All Territories</option>
                 {territories.map(territory => (
@@ -469,7 +469,7 @@ export const LeadsManagement: React.FC = () => {
               <select
                 value={filters.dateRange}
                 onChange={(e) => setFilters(prev => ({ ...prev, dateRange: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">All Time</option>
                 <option value="today">Today</option>
@@ -484,7 +484,7 @@ export const LeadsManagement: React.FC = () => {
                 placeholder="Min Value"
                 value={filters.minValue}
                 onChange={(e) => setFilters(prev => ({ ...prev, minValue: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
               />
 
               {/* Max Value Filter */}
@@ -493,21 +493,21 @@ export const LeadsManagement: React.FC = () => {
                 placeholder="Max Value"
                 value={filters.maxValue}
                 onChange={(e) => setFilters(prev => ({ ...prev, maxValue: e.target.value }))}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
               />
             </div>
           )}
         </div>
 
         {/* Leads Table */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden">
+        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
           {/* Table Header */}
-          <div className="px-6 py-4 border-b border-gray-800">
-            <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-400">
+          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
+            <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
               <div className="col-span-3">
                 <button
                   onClick={() => handleSort('name')}
-                  className="flex items-center hover:text-white transition-colors"
+                  className="flex items-center hover:text-gray-900 transition-colors"
                 >
                   Lead Details
                   <ArrowUpDown className="h-3 w-3 ml-1" />
@@ -516,7 +516,7 @@ export const LeadsManagement: React.FC = () => {
               <div className="col-span-2">
                 <button
                   onClick={() => handleSort('status')}
-                  className="flex items-center hover:text-white transition-colors"
+                  className="flex items-center hover:text-gray-900 transition-colors"
                 >
                   Status
                   <ArrowUpDown className="h-3 w-3 ml-1" />
@@ -525,7 +525,7 @@ export const LeadsManagement: React.FC = () => {
               <div className="col-span-2">
                 <button
                   onClick={() => handleSort('value')}
-                  className="flex items-center hover:text-white transition-colors"
+                  className="flex items-center hover:text-gray-900 transition-colors"
                 >
                   Value
                   <ArrowUpDown className="h-3 w-3 ml-1" />
@@ -534,7 +534,7 @@ export const LeadsManagement: React.FC = () => {
               <div className="col-span-1">
                 <button
                   onClick={() => handleSort('lead_score')}
-                  className="flex items-center hover:text-white transition-colors"
+                  className="flex items-center hover:text-gray-900 transition-colors"
                 >
                   Score
                   <ArrowUpDown className="h-3 w-3 ml-1" />
@@ -544,7 +544,7 @@ export const LeadsManagement: React.FC = () => {
               <div className="col-span-1">
                 <button
                   onClick={() => handleSort('created_at')}
-                  className="flex items-center hover:text-white transition-colors"
+                  className="flex items-center hover:text-gray-900 transition-colors"
                 >
                   Created
                   <ArrowUpDown className="h-3 w-3 ml-1" />
@@ -555,35 +555,35 @@ export const LeadsManagement: React.FC = () => {
           </div>
 
           {/* Table Body */}
-          <div className="divide-y divide-gray-800">
+          <div className="divide-y divide-gray-200">
             {currentLeads.length > 0 ? (
               currentLeads.map((lead) => (
-                <div key={lead.id} className="px-6 py-4 hover:bg-gray-800/50 transition-colors">
+                <div key={lead.id} className="px-6 py-4 hover:bg-gray-50 transition-colors">
                   <div className="grid grid-cols-12 gap-4 items-center">
                     {/* Lead Details */}
                     <div className="col-span-3">
                       <div className="flex items-start space-x-3">
                         <div className="flex-shrink-0">
-                          <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-white text-sm font-medium">
                               {lead.name.charAt(0).toUpperCase()}
                             </span>
                           </div>
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-white font-medium truncate">{lead.name}</p>
+                          <p className="text-gray-900 font-medium truncate">{lead.name}</p>
                           {lead.company && (
-                            <p className="text-gray-400 text-sm truncate">{lead.company}</p>
+                            <p className="text-gray-600 text-sm truncate">{lead.company}</p>
                           )}
                           <div className="flex items-center space-x-4 mt-1">
                             {lead.email && (
-                              <span className="text-gray-400 text-xs flex items-center">
+                              <span className="text-gray-500 text-xs flex items-center">
                                 <Mail className="h-3 w-3 mr-1" />
                                 {lead.email}
                               </span>
                             )}
                             {lead.phone && (
-                              <span className="text-gray-400 text-xs flex items-center">
+                              <span className="text-gray-500 text-xs flex items-center">
                                 <Phone className="h-3 w-3 mr-1" />
                                 {lead.phone}
                               </span>
@@ -598,7 +598,7 @@ export const LeadsManagement: React.FC = () => {
                       <select
                         value={lead.status}
                         onChange={(e) => handleStatusChange(lead.id, e.target.value)}
-                        className={`px-2 py-1 rounded-full text-xs font-medium border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 ${getStatusColor(lead.status)}`}
+                        className={`px-2 py-1 rounded-full text-xs font-medium border-0 focus:outline-none focus:ring-2 focus:ring-blue-500 ${getStatusColor(lead.status)}`}
                       >
                         <option value="Hot">Hot</option>
                         <option value="Warm">Warm</option>
@@ -611,7 +611,7 @@ export const LeadsManagement: React.FC = () => {
 
                     {/* Value */}
                     <div className="col-span-2">
-                      <span className="text-white font-medium">
+                      <span className="text-gray-900 font-medium">
                         {formatCurrency(lead.value)}
                       </span>
                     </div>
@@ -622,7 +622,7 @@ export const LeadsManagement: React.FC = () => {
                         <span className={`font-medium ${getLeadScoreColor(lead.lead_score)}`}>
                           {lead.lead_score}
                         </span>
-                        <div className="ml-2 w-12 bg-gray-700 rounded-full h-1.5">
+                        <div className="ml-2 w-12 bg-gray-200 rounded-full h-1.5">
                           <div 
                             className={`h-1.5 rounded-full transition-all duration-300 ${
                               lead.lead_score >= 80 ? 'bg-green-500' :
@@ -639,10 +639,10 @@ export const LeadsManagement: React.FC = () => {
                     <div className="col-span-2">
                       {lead.assigned_user ? (
                         <div className="flex items-center">
-                          <div className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center mr-2">
-                            <User className="h-3 w-3 text-white" />
+                          <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center mr-2">
+                            <User className="h-3 w-3 text-gray-600" />
                           </div>
-                          <span className="text-gray-300 text-sm truncate">
+                          <span className="text-gray-700 text-sm truncate">
                             {lead.assigned_user.name}
                           </span>
                         </div>
@@ -653,7 +653,7 @@ export const LeadsManagement: React.FC = () => {
 
                     {/* Created Date */}
                     <div className="col-span-1">
-                      <span className="text-gray-400 text-sm">
+                      <span className="text-gray-600 text-sm">
                         {formatDate(lead.created_at)}
                       </span>
                     </div>
@@ -666,14 +666,14 @@ export const LeadsManagement: React.FC = () => {
                             setSelectedLead(lead);
                             setShowDetailModal(true);
                           }}
-                          className="p-1 text-gray-400 hover:text-white transition-colors"
+                          className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
                           title="View Details"
                         >
                           <Eye className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => handleDeleteLead(lead.id)}
-                          className="p-1 text-gray-400 hover:text-red-400 transition-colors"
+                          className="p-1 text-gray-500 hover:text-red-600 transition-colors"
                           title="Delete Lead"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -685,8 +685,8 @@ export const LeadsManagement: React.FC = () => {
               ))
             ) : (
               <div className="px-6 py-12 text-center">
-                <Users className="h-12 w-12 text-gray-600 mx-auto mb-4" />
-                <p className="text-gray-400 text-lg mb-2">No leads found</p>
+                <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 text-lg mb-2">No leads found</p>
                 <p className="text-gray-500 text-sm">
                   {searchTerm || Object.values(filters).some(f => f) 
                     ? 'Try adjusting your search or filters'
@@ -701,7 +701,7 @@ export const LeadsManagement: React.FC = () => {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-between mt-6">
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-600">
               Showing {indexOfFirstLead + 1} to {Math.min(indexOfLastLead, filteredLeads.length)} of {filteredLeads.length} results
             </div>
             
@@ -709,7 +709,7 @@ export const LeadsManagement: React.FC = () => {
               <button
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="px-3 py-2 text-sm bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="px-3 py-2 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-gray-300"
               >
                 Previous
               </button>
@@ -731,10 +731,10 @@ export const LeadsManagement: React.FC = () => {
                     <button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
-                      className={`px-3 py-2 text-sm rounded-lg transition-colors ${
+                      className={`px-3 py-2 text-sm rounded-lg transition-colors border ${
                         currentPage === pageNum
-                          ? 'bg-purple-600 text-white'
-                          : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-gray-300'
                       }`}
                     >
                       {pageNum}
@@ -746,7 +746,7 @@ export const LeadsManagement: React.FC = () => {
               <button
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                className="px-3 py-2 text-sm bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="px-3 py-2 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors border border-gray-300"
               >
                 Next
               </button>

@@ -108,8 +108,8 @@ export const TerritoriesManagement: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-400"></div>
       </div>
     );
   }
@@ -117,18 +117,18 @@ export const TerritoriesManagement: React.FC = () => {
   return (
     <div className="flex-1">
       {/* Controls Header */}
-      <div className="bg-gray-900/50 backdrop-blur-sm border-b border-gray-800">
+      <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
               {/* View Mode Toggle */}
-              <div className="flex bg-gray-800 rounded-lg p-1">
+              <div className="flex bg-gray-100 rounded-lg p-1 border border-gray-200">
                 <button
                   onClick={() => setViewMode('map')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${
                     viewMode === 'map'
-                      ? 'bg-purple-600 text-white'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white'
                   }`}
                 >
                   <Map className="h-4 w-4 mr-2" />
@@ -138,8 +138,8 @@ export const TerritoriesManagement: React.FC = () => {
                   onClick={() => setViewMode('list')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm transition-colors ${
                     viewMode === 'list'
-                      ? 'bg-purple-600 text-white'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white'
                   }`}
                 >
                   <List className="h-4 w-4 mr-2" />
@@ -149,7 +149,7 @@ export const TerritoriesManagement: React.FC = () => {
 
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
+                className="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors"
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Add Territory
@@ -165,14 +165,14 @@ export const TerritoriesManagement: React.FC = () => {
                   placeholder="Search territories..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 w-64"
+                  className="pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
                 />
               </div>
 
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value as any)}
-                className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Status</option>
                 <option value="active">Active</option>
@@ -187,43 +187,43 @@ export const TerritoriesManagement: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Summary */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm font-medium">Total Territories</p>
-                <p className="text-2xl font-bold text-white">{territories.length}</p>
+                <p className="text-gray-600 text-sm font-medium">Total Territories</p>
+                <p className="text-2xl font-bold text-gray-900">{territories.length}</p>
               </div>
-              <MapPin className="h-8 w-8 text-purple-500" />
+              <MapPin className="h-8 w-8 text-gray-600" />
             </div>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm font-medium">Active Territories</p>
-                <p className="text-2xl font-bold text-white">{territories.filter(t => t.is_active).length}</p>
+                <p className="text-gray-600 text-sm font-medium">Active Territories</p>
+                <p className="text-2xl font-bold text-gray-900">{territories.filter(t => t.is_active).length}</p>
               </div>
-              <BarChart3 className="h-8 w-8 text-green-500" />
+              <BarChart3 className="h-8 w-8 text-gray-600" />
             </div>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm font-medium">Total Leads</p>
-                <p className="text-2xl font-bold text-white">{territories.reduce((sum, t) => sum + (t.lead_count || 0), 0)}</p>
+                <p className="text-gray-600 text-sm font-medium">Total Leads</p>
+                <p className="text-2xl font-bold text-gray-900">{territories.reduce((sum, t) => sum + (t.lead_count || 0), 0)}</p>
               </div>
-              <Users className="h-8 w-8 text-blue-500" />
+              <Users className="h-8 w-8 text-gray-600" />
             </div>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+          <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm font-medium">Assigned</p>
-                <p className="text-2xl font-bold text-white">{territories.filter(t => t.assigned_to_id).length}</p>
+                <p className="text-gray-600 text-sm font-medium">Assigned</p>
+                <p className="text-2xl font-bold text-gray-900">{territories.filter(t => t.assigned_to_id).length}</p>
               </div>
-              <Users className="h-8 w-8 text-orange-500" />
+              <Users className="h-8 w-8 text-gray-600" />
             </div>
           </div>
         </div>
@@ -236,25 +236,25 @@ export const TerritoriesManagement: React.FC = () => {
             onTerritorySelect={handleTerritorySelect}
           />
         ) : (
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden">
-            <div className="p-4 border-b border-gray-800">
-              <h3 className="text-lg font-semibold text-white">Territory List</h3>
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+            <div className="p-4 border-b border-gray-200 bg-gray-50">
+              <h3 className="text-lg font-semibold text-gray-900">Territory List</h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-800/50">
+                <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Territory</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Assigned To</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Leads</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Value</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Status</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Territory</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Assigned To</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Leads</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Value</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Status</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-800">
+                <tbody className="divide-y divide-gray-200">
                   {filteredTerritories.map(territory => (
-                    <tr key={territory.id} className="hover:bg-gray-800/30">
+                    <tr key={territory.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div 
@@ -262,20 +262,20 @@ export const TerritoriesManagement: React.FC = () => {
                             style={{ backgroundColor: territory.color }}
                           ></div>
                           <div>
-                            <div className="text-white font-medium">{territory.name}</div>
+                            <div className="text-gray-900 font-medium">{territory.name}</div>
                             {territory.description && (
-                              <div className="text-gray-400 text-sm">{territory.description}</div>
+                              <div className="text-gray-600 text-sm">{territory.description}</div>
                             )}
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-gray-700">
                         {territory.assigned_user?.name || 'Unassigned'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-gray-700">
                         {territory.lead_count || 0}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-300">
+                      <td className="px-6 py-4 whitespace-nowrap text-gray-700">
                         ${(territory.total_value || 0).toLocaleString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -291,7 +291,7 @@ export const TerritoriesManagement: React.FC = () => {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => handleTerritorySelect(territory)}
-                            className="p-1 text-purple-400 hover:text-purple-300"
+                            className="p-1 text-teal-400 hover:text-purple-300"
                           >
                             <Eye className="h-4 w-4" />
                           </button>

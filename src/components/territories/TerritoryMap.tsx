@@ -223,7 +223,7 @@ export const TerritoryMap: React.FC<TerritoryMapProps> = ({
                 <span>$${(territory.total_value || 0).toLocaleString()}</span>
               </div>
             </div>
-            <button class="mt-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 rounded text-sm transition-colors w-full" onclick="window.selectTerritory('${territory.id}')">
+            <button class="mt-2 px-3 py-1 bg-teal-600 hover:bg-teal-700 rounded text-sm transition-colors w-full" onclick="window.selectTerritory('${territory.id}')">
               View Details
             </button>
           </div>
@@ -318,7 +318,7 @@ export const TerritoryMap: React.FC<TerritoryMapProps> = ({
         <div class="bg-gray-900 text-white p-2 rounded border border-gray-700">
           <h4 class="font-semibold">${territory.name}</h4>
           <p class="text-sm text-gray-300">${territory.leads} leads</p>
-          <p class="text-xs text-purple-400">Sample territory</p>
+          <p class="text-xs text-teal-400">Sample territory</p>
         </div>
       `);
 
@@ -382,7 +382,7 @@ export const TerritoryMap: React.FC<TerritoryMapProps> = ({
     <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden">
       <div className="p-4 border-b border-gray-800">
         <h3 className="text-lg font-semibold text-white flex items-center">
-          <MapPin className="h-5 w-5 mr-2 text-purple-500" />
+          <MapPin className="h-5 w-5 mr-2 text-teal-500" />
           Territory Map View
         </h3>
         <p className="text-gray-400 text-sm mt-1">
@@ -451,7 +451,7 @@ export const TerritoryMap: React.FC<TerritoryMapProps> = ({
         {!mapLoaded && !mapError && (
           <div className="absolute inset-0 bg-gray-900/50 flex items-center justify-center z-[1000]">
             <div className="text-center">
-              <div className="animate-spin h-8 w-8 border-2 border-purple-500 border-t-transparent rounded-full mx-auto mb-2"></div>
+              <div className="animate-spin h-8 w-8 border-2 border-teal-500 border-t-transparent rounded-full mx-auto mb-2"></div>
               <p className="text-white text-sm">Loading map...</p>
             </div>
           </div>
@@ -467,7 +467,7 @@ export const TerritoryMap: React.FC<TerritoryMapProps> = ({
                 <p className="text-gray-300 text-sm mb-4">{mapError}</p>
                 <button 
                   onClick={() => window.location.reload()} 
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   Reload Page
                 </button>

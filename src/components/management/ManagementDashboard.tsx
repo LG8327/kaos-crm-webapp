@@ -99,46 +99,46 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
       {/* Performance Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {performanceMetrics.map((metric, index) => (
-          <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+          <div key={index} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-gray-400">{metric.icon}</div>
+              <div className="text-gray-600">{metric.icon}</div>
               <div className={`text-xs px-2 py-1 rounded-full ${
-                metric.trend === 'up' ? 'bg-green-500/20 text-green-400' :
-                metric.trend === 'down' ? 'bg-red-500/20 text-red-400' :
-                'bg-gray-500/20 text-gray-400'
+                metric.trend === 'up' ? 'bg-gray-100 text-gray-700' :
+                metric.trend === 'down' ? 'bg-gray-100 text-gray-700' :
+                'bg-gray-100 text-gray-600'
               }`}>
                 {metric.change}
               </div>
             </div>
-            <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
-            <div className="text-sm text-gray-400">{metric.label}</div>
+            <div className="text-2xl font-bold text-gray-900 mb-1">{metric.value}</div>
+            <div className="text-sm text-gray-600">{metric.label}</div>
           </div>
         ))}
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
-        <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-          <BarChart3 className="h-5 w-5 mr-2 text-purple-400" />
+      <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+          <BarChart3 className="h-5 w-5 mr-2 text-gray-600" />
           Quick Actions
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="bg-purple-600/20 border border-purple-500/30 rounded-lg p-4 text-left hover:bg-purple-600/30 transition-colors">
-            <UserCheck className="h-6 w-6 text-purple-400 mb-2" />
-            <div className="text-white font-medium">Review Team Performance</div>
-            <div className="text-gray-400 text-sm">Weekly team assessments</div>
+          <button className="bg-gray-100 border border-gray-200 rounded-lg p-4 text-left hover:bg-gray-50 transition-colors">
+            <UserCheck className="h-6 w-6 text-gray-600 mb-2" />
+            <div className="text-gray-900 font-medium">Review Team Performance</div>
+            <div className="text-gray-600 text-sm">Weekly team assessments</div>
           </button>
           
-          <button className="bg-blue-600/20 border border-blue-500/30 rounded-lg p-4 text-left hover:bg-blue-600/30 transition-colors">
-            <Calendar className="h-6 w-6 text-blue-400 mb-2" />
-            <div className="text-white font-medium">Schedule Team Meeting</div>
-            <div className="text-gray-400 text-sm">Plan strategy sessions</div>
+          <button className="bg-gray-100 border border-gray-200 rounded-lg p-4 text-left hover:bg-gray-50 transition-colors">
+            <Calendar className="h-6 w-6 text-gray-600 mb-2" />
+            <div className="text-gray-900 font-medium">Schedule Team Meeting</div>
+            <div className="text-gray-600 text-sm">Plan strategy sessions</div>
           </button>
           
-          <button className="bg-orange-600/20 border border-orange-500/30 rounded-lg p-4 text-left hover:bg-orange-600/30 transition-colors">
-            <AlertCircle className="h-6 w-6 text-orange-400 mb-2" />
-            <div className="text-white font-medium">Territory Assignments</div>
-            <div className="text-gray-400 text-sm">Manage territory allocation</div>
+          <button className="bg-gray-100 border border-gray-200 rounded-lg p-4 text-left hover:bg-gray-50 transition-colors">
+            <AlertCircle className="h-6 w-6 text-gray-600 mb-2" />
+            <div className="text-gray-900 font-medium">Territory Assignments</div>
+            <div className="text-gray-600 text-sm">Manage territory allocation</div>
           </button>
         </div>
       </div>
@@ -147,47 +147,47 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
 
   const renderTeamManagement = () => (
     <div className="space-y-6">
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
-        <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-          <Users className="h-5 w-5 mr-2 text-purple-400" />
+      <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+          <Users className="h-5 w-5 mr-2 text-gray-600" />
           Team Members
         </h3>
         
         <div className="space-y-3">
           {teamMembers.length > 0 ? teamMembers.map((member) => (
-            <div key={member.id} className="flex items-center justify-between p-4 bg-gray-700/30 rounded-lg border border-gray-600/50">
+            <div key={member.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-medium">
+                <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                  <span className="text-gray-700 font-medium">
                     {member.firstName.charAt(0)}{member.lastName.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <div className="text-white font-medium">{member.firstName} {member.lastName}</div>
-                  <div className="text-gray-400 text-sm">{member.email}</div>
+                  <div className="text-gray-900 font-medium">{member.firstName} {member.lastName}</div>
+                  <div className="text-gray-600 text-sm">{member.email}</div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
                 <div className="text-right">
-                  <div className="text-white text-sm">{member.role}</div>
-                  <div className="text-gray-400 text-xs">
+                  <div className="text-gray-900 text-sm">{member.role}</div>
+                  <div className="text-gray-600 text-xs">
                     Status: {member.isActive ? 'Active' : 'Inactive'}
                   </div>
                 </div>
                 
                 <div className="flex space-x-2">
-                  <button className="bg-blue-600/20 text-blue-400 px-3 py-1 rounded text-xs hover:bg-blue-600/30 transition-colors">
+                  <button className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs hover:bg-gray-200 transition-colors border border-gray-200">
                     View
                   </button>
-                  <button className="bg-purple-600/20 text-purple-400 px-3 py-1 rounded text-xs hover:bg-purple-600/30 transition-colors">
+                  <button className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-xs hover:bg-gray-200 transition-colors border border-gray-200">
                     Assign
                   </button>
                 </div>
               </div>
             </div>
           )) : (
-            <div className="text-center text-gray-400 py-8">
+            <div className="text-center text-gray-600 py-8">
               <Users className="h-12 w-12 mx-auto mb-3 opacity-50" />
               <p>No team members found</p>
             </div>
@@ -199,36 +199,36 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
 
   const renderTerritoryManagement = () => (
     <div className="space-y-6">
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
-        <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-          <MapPin className="h-5 w-5 mr-2 text-purple-400" />
+      <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+          <MapPin className="h-5 w-5 mr-2 text-gray-600" />
           Territory Overview
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((territory) => (
-            <div key={territory} className="bg-gray-700/30 rounded-lg p-4 border border-gray-600/50">
+            <div key={territory} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
               <div className="flex items-center justify-between mb-3">
-                <h4 className="text-white font-medium">Territory {territory}</h4>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                <h4 className="text-gray-900 font-medium">Territory {territory}</h4>
+                <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
               </div>
               
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Assigned to:</span>
-                  <span className="text-white">Sales Rep {territory}</span>
+                  <span className="text-gray-600">Assigned to:</span>
+                  <span className="text-gray-900">Sales Rep {territory}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Active Leads:</span>
-                  <span className="text-white">{Math.floor(Math.random() * 20) + 5}</span>
+                  <span className="text-gray-600">Active Leads:</span>
+                  <span className="text-gray-900">{Math.floor(Math.random() * 20) + 5}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Performance:</span>
-                  <span className="text-green-400">{Math.floor(Math.random() * 20) + 80}%</span>
+                  <span className="text-gray-600">Performance:</span>
+                  <span className="text-gray-700">{Math.floor(Math.random() * 20) + 80}%</span>
                 </div>
               </div>
               
-              <button className="w-full mt-3 bg-purple-600/20 text-purple-400 py-2 rounded text-xs hover:bg-purple-600/30 transition-colors">
+              <button className="w-full mt-3 bg-blue-100 text-blue-700 py-2 rounded text-xs hover:bg-blue-200 transition-colors border border-blue-200">
                 Manage Territory
               </button>
             </div>
@@ -240,18 +240,18 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
 
   const renderPerformanceAnalytics = () => (
     <div className="space-y-6">
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
-        <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-          <BarChart3 className="h-5 w-5 mr-2 text-purple-400" />
+      <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+          <BarChart3 className="h-5 w-5 mr-2 text-gray-600" />
           Performance Analytics
         </h3>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Team Performance Chart Placeholder */}
-          <div className="bg-gray-700/30 rounded-lg p-6 border border-gray-600/50">
-            <h4 className="text-white font-medium mb-4">Team Performance Trends</h4>
-            <div className="h-48 bg-gray-600/20 rounded-lg flex items-center justify-center">
-              <div className="text-center text-gray-400">
+          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <h4 className="text-gray-900 font-medium mb-4">Team Performance Trends</h4>
+            <div className="h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+              <div className="text-center text-gray-600">
                 <TrendingUp className="h-8 w-8 mx-auto mb-2" />
                 <p>Performance Chart</p>
                 <p className="text-xs">Integration with analytics library needed</p>
@@ -260,20 +260,20 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
           </div>
           
           {/* Territory Performance */}
-          <div className="bg-gray-700/30 rounded-lg p-6 border border-gray-600/50">
-            <h4 className="text-white font-medium mb-4">Territory Performance</h4>
+          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <h4 className="text-gray-900 font-medium mb-4">Territory Performance</h4>
             <div className="space-y-3">
               {[1, 2, 3, 4, 5].map((territory) => (
                 <div key={territory} className="flex items-center justify-between">
-                  <span className="text-gray-300">Territory {territory}</span>
+                  <span className="text-gray-700">Territory {territory}</span>
                   <div className="flex items-center space-x-2">
-                    <div className="w-20 bg-gray-600 rounded-full h-2">
+                    <div className="w-20 bg-gray-200 rounded-full h-2">
                       <div 
-                        className="bg-purple-500 h-2 rounded-full" 
+                        className="bg-blue-500 h-2 rounded-full" 
                         style={{ width: `${Math.floor(Math.random() * 40) + 60}%` }}
                       ></div>
                     </div>
-                    <span className="text-white text-sm w-10">{Math.floor(Math.random() * 40) + 60}%</span>
+                    <span className="text-gray-900 text-sm w-10">{Math.floor(Math.random() * 40) + 60}%</span>
                   </div>
                 </div>
               ))}
@@ -290,10 +290,10 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
         <div className="animate-pulse space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-gray-800/50 rounded-xl h-32"></div>
+              <div key={i} className="bg-gray-200 rounded-xl h-32"></div>
             ))}
           </div>
-          <div className="bg-gray-800/50 rounded-xl h-64"></div>
+          <div className="bg-gray-200 rounded-xl h-64"></div>
         </div>
       </div>
     );
@@ -303,13 +303,13 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
     <div className="p-6">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white mb-2">Management Dashboard</h1>
-        <p className="text-gray-400">Team oversight and performance management</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Management Dashboard</h1>
+        <p className="text-gray-600">Team oversight and performance management</p>
       </div>
 
       {/* Tab Navigation */}
       <div className="mb-6">
-        <div className="flex space-x-1 bg-gray-800/50 p-1 rounded-lg w-fit">
+        <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg w-fit border border-gray-200">
           {[
             { id: 'overview', label: 'Overview' },
             { id: 'team', label: 'Team' },
@@ -321,8 +321,8 @@ export const ManagementDashboard: React.FC<ManagementDashboardProps> = ({ userRo
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === tab.id
-                  ? 'bg-purple-600 text-white'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-white'
               }`}
             >
               {tab.label}

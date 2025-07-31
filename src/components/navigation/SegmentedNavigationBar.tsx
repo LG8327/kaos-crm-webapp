@@ -56,10 +56,10 @@ export const SegmentedNavigationBar: React.FC<SegmentedNavigationBarProps> = ({
   ].filter(tab => tab.isVisible);
 
   return (
-    <div className="px-4 pt-4 pb-2">
+    <div className="px-6 pt-6 pb-3 bg-white">
       <div className="flex justify-center">
-        <div className="bg-gray-800/80 backdrop-blur-md rounded-full p-1 shadow-lg border border-gray-700/50">
-          <div className="flex items-center space-x-1">
+        <div className="bg-gray-100 border border-gray-200 rounded-3xl shadow-sm p-1.5">
+          <div className="flex items-center space-x-2">
             {tabs.map((tab) => {
               const isSelected = selectedTab === tab.id;
               
@@ -67,18 +67,16 @@ export const SegmentedNavigationBar: React.FC<SegmentedNavigationBarProps> = ({
                 <button
                   key={tab.id}
                   onClick={() => onTabChange(tab.id)}
-                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-in-out ${
+                  className={`relative z-10 px-6 py-3 text-sm font-semibold transition-all duration-300 rounded-2xl ${
                     isSelected
-                      ? 'bg-purple-500 text-white shadow-lg'
-                      : 'text-gray-400 hover:text-gray-200 hover:bg-gray-700/50'
+                    ? 'bg-white text-gray-900 shadow-sm border border-gray-200'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
-                  <span className="relative z-10">{tab.label}</span>
-                  
-                  {/* Animated background for selected state */}
                   {isSelected && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full shadow-lg"></div>
+                    <div className="absolute inset-0 bg-white rounded-2xl shadow-sm border border-gray-200"></div>
                   )}
+                  <span className="relative z-10 font-medium">{tab.label}</span>
                 </button>
               );
             })}

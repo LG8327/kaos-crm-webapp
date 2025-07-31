@@ -144,7 +144,7 @@ export const TerritoryBoundaryDrawer: React.FC<TerritoryBoundaryDrawerProps> = (
           <p>• Use trash icon to delete</p>
         </div>
         {isDrawing && (
-          <div className="mt-2 text-xs text-purple-400 font-medium">
+          <div className="mt-2 text-xs text-teal-400 font-medium">
             Drawing in progress...
           </div>
         )}

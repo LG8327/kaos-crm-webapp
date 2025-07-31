@@ -53,31 +53,31 @@ export const UserDropdownMenu: React.FC<UserDropdownMenuProps> = ({
       icon: User,
       label: 'Profile',
       action: () => alert('Profile settings coming soon'),
-      color: 'text-gray-400'
+      color: 'text-gray-600'
     },
     {
       icon: Settings,
       label: 'Settings',
       action: () => alert('Settings'),
-      color: 'text-gray-400'
+      color: 'text-gray-600'
     },
     {
       icon: Bell,
       label: 'Notifications',
       action: () => alert('Notifications'),
-      color: 'text-gray-400'
+      color: 'text-gray-600'
     },
     {
       icon: Shield,
       label: 'Privacy & Security',
       action: () => alert('Privacy settings'),
-      color: 'text-gray-400'
+      color: 'text-gray-600'
     },
     {
       icon: HelpCircle,
       label: 'Help & Support',
       action: () => alert('Help center'),
-      color: 'text-gray-400'
+      color: 'text-gray-600'
     }
   ];
 
@@ -85,20 +85,20 @@ export const UserDropdownMenu: React.FC<UserDropdownMenuProps> = ({
     <div className="absolute top-16 right-4 w-72 z-50">
       <div
         ref={menuRef}
-        className="bg-gray-900/95 backdrop-blur-md border border-gray-700 rounded-2xl shadow-2xl overflow-hidden"
+        className="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden"
       >
         {/* User Info Header */}
-        <div className="p-4 border-b border-gray-700">
+        <div className="p-4 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-              <span className="text-white text-lg font-semibold">
+            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <span className="text-gray-700 text-lg font-semibold">
                 {userInfo.name.charAt(0).toUpperCase()}
               </span>
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="text-white font-semibold truncate">{userInfo.name}</h3>
-              <p className="text-gray-400 text-sm truncate">{userInfo.email}</p>
-              <span className="inline-block px-2 py-1 mt-1 text-xs font-medium bg-purple-900/30 text-purple-400 rounded-full">
+              <h3 className="text-gray-900 font-semibold truncate">{userInfo.name}</h3>
+              <p className="text-gray-600 text-sm truncate">{userInfo.email}</p>
+              <span className="inline-block px-2 py-1 mt-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">
                 {userInfo.role}
               </span>
             </div>
@@ -114,30 +114,30 @@ export const UserDropdownMenu: React.FC<UserDropdownMenuProps> = ({
                 item.action();
                 onClose();
               }}
-              className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-800/50 transition-colors group"
+              className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors group"
             >
               <div className="flex items-center space-x-3">
-                <item.icon className={`h-5 w-5 ${item.color} group-hover:text-white transition-colors`} />
-                <span className="text-gray-300 group-hover:text-white transition-colors">
+                <item.icon className={`h-5 w-5 ${item.color} group-hover:text-gray-900 transition-colors`} />
+                <span className="text-gray-700 group-hover:text-gray-900 transition-colors">
                   {item.label}
                 </span>
               </div>
-              <ChevronRight className="h-4 w-4 text-gray-500 group-hover:text-gray-300 transition-colors" />
+              <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-gray-600 transition-colors" />
             </button>
           ))}
         </div>
 
         {/* Sign Out */}
-        <div className="border-t border-gray-700">
+        <div className="border-t border-gray-200">
           <button
             onClick={() => {
               onSignOut();
               onClose();
             }}
-            className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-red-900/20 transition-colors group"
+            className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors group"
           >
-            <LogOut className="h-5 w-5 text-red-400" />
-            <span className="text-red-400 font-medium">Sign Out</span>
+            <LogOut className="h-5 w-5 text-gray-600" />
+            <span className="text-gray-600 font-medium">Sign Out</span>
           </button>
         </div>
       </div>

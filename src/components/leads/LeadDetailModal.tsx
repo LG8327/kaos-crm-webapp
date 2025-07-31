@@ -193,7 +193,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
               <span className="text-white text-lg font-bold">
                 {lead.name.charAt(0).toUpperCase()}
               </span>
@@ -210,7 +210,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
             {!isEditing ? (
               <button
                 onClick={() => setIsEditing(true)}
-                className="flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
+                className="flex items-center px-4 py-2 bg-teal-600 hover:bg-teal-700 rounded-lg text-white transition-colors"
               >
                 <Edit2 className="h-4 w-4 mr-2" />
                 Edit
@@ -264,7 +264,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white">{lead.name}</p>
@@ -280,7 +280,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="text"
                         value={formData.company || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white">{lead.company || 'Not specified'}</p>
@@ -296,7 +296,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="email"
                         value={formData.email || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white flex items-center">
@@ -315,7 +315,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="tel"
                         value={formData.phone || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white flex items-center">
@@ -340,7 +340,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="text"
                         value={formData.address || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white flex items-center">
@@ -359,7 +359,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="text"
                         value={formData.city || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white">{lead.city || 'Not provided'}</p>
@@ -375,7 +375,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="text"
                         value={formData.state || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, state: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white">{lead.state || 'Not provided'}</p>
@@ -391,7 +391,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         type="number"
                         value={formData.zip || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, zip: parseInt(e.target.value) || undefined }))}
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white">{lead.zip || 'Not provided'}</p>
@@ -410,7 +410,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                     rows={4}
                     value={formData.notes || ''}
                     onChange={(e) => setFormData(prev => ({ ...prev, notes: e.target.value }))}
-                    className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     placeholder="Add notes about this lead..."
                   />
                 ) : (
@@ -436,7 +436,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.status}
                         onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="Hot">Hot</option>
                         <option value="Warm">Warm</option>
@@ -462,7 +462,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         step="0.01"
                         value={formData.value}
                         onChange={(e) => setFormData(prev => ({ ...prev, value: parseFloat(e.target.value) || 0 }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <p className="text-white text-lg font-semibold flex items-center">
@@ -483,7 +483,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                         max="100"
                         value={formData.lead_score}
                         onChange={(e) => setFormData(prev => ({ ...prev, lead_score: parseInt(e.target.value) || 0 }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       />
                     ) : (
                       <div className="flex items-center">
@@ -519,7 +519,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.assigned_to_id || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, assigned_to_id: e.target.value || undefined }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="">Unassigned</option>
                         {users.map(user => (
@@ -544,7 +544,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.territory_id || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, territory_id: e.target.value || undefined }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="">No Territory</option>
                         {territories.map(territory => (
@@ -598,7 +598,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.wireless_opp || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, wireless_opp: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="">Not specified</option>
                         <option value="Yes">Yes</option>
@@ -614,7 +614,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.existing_video || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, existing_video: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="">Not specified</option>
                         <option value="Yes">Yes</option>
@@ -629,7 +629,7 @@ export const LeadDetailModal: React.FC<LeadDetailModalProps> = ({
                       <select
                         value={formData.door_knock_allowed || ''}
                         onChange={(e) => setFormData(prev => ({ ...prev, door_knock_allowed: e.target.value }))}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                       >
                         <option value="">Not specified</option>
                         <option value="Yes">Yes</option>

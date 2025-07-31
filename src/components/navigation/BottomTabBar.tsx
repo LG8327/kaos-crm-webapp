@@ -91,7 +91,7 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({
                   onClick={() => onTabChange(tab.id)}
                   className={`flex flex-col items-center justify-center p-2 min-w-0 flex-1 relative transition-all duration-200 ${
                     isSelected
-                      ? 'text-purple-400'
+                      ? 'text-teal-400'
                       : 'text-gray-500 hover:text-gray-300'
                   }`}
                 >
@@ -111,7 +111,7 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({
                   
                   {/* Label */}
                   <span className={`text-xs font-medium transition-all duration-200 ${
-                    isSelected ? 'text-purple-400' : 'text-gray-500'
+                    isSelected ? 'text-teal-400' : 'text-gray-500'
                   }`}>
                     {tab.label}
                   </span>

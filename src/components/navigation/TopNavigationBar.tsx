@@ -1,88 +1,63 @@
-// src/components/navigation/TopNavigationBar.tsx
+'use client';
+
 import React from 'react';
-import { ArrowLeft, User } from 'lucide-react';
+import { Search, Bell, Settings } from 'lucide-react';
+import { ModeToggle } from '../ui/mode-toggle';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
-interface TopNavigationBarProps {
-  title: string;
-  subtitle?: string;
-  showBackButton?: boolean;
-  onBackPress?: () => void;
-  rightActions?: Array<{
-    icon: React.ElementType;
-    label: string;
-    action: () => void;
-    color?: string;
-  }>;
-  onUserMenuToggle: () => void;
-  userInfo: {
-    name: string;
-    email: string;
-    role: string;
-  };
-}
-
-export const TopNavigationBar: React.FC<TopNavigationBarProps> = ({
-  title,
-  subtitle,
-  showBackButton = false,
-  onBackPress,
-  rightActions = [],
-  onUserMenuToggle,
-  userInfo
-}) => {
+export function TopNavigationBar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-gray-900/95 backdrop-blur-md border-b border-gray-800">
-      <div className="px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Left Section */}
-          <div className="flex items-center space-x-3">
-            {showBackButton && (
-              <button
-                onClick={onBackPress}
-                className="p-2 text-gray-400 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5" />
-              </button>
-            )}
-            
-            <div>
-              <h1 className="text-xl font-bold text-white">{title}</h1>
-              {subtitle && (
-                <p className="text-sm text-gray-400">{subtitle}</p>
-              )}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <div className="mr-4 hidden md:flex">
+          <a className="mr-6 flex items-center space-x-2" href="/">
+            <span className="hidden font-bold sm:inline-block text-primary">
+              KAOS CRM
+            </span>
+          </a>
+        </div>
+        
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search..."
+                className="pl-9 sm:w-[300px] md:w-[200px] lg:w-[300px] bg-background border-border"
+              />
             </div>
           </div>
-
-          {/* Right Section */}
-          <div className="flex items-center space-x-2">
-            {/* Action Buttons */}
-            {rightActions.map((action, index) => (
-              <button
-                key={index}
-                onClick={action.action}
-                className={`p-2 rounded-lg transition-colors ${
-                  action.color || 'text-gray-400 hover:text-white hover:bg-gray-800'
-                }`}
-                title={action.label}
-              >
-                <action.icon className="h-5 w-5" />
-              </button>
-            ))}
-
-            {/* User Avatar */}
-            <button
-              onClick={onUserMenuToggle}
-              className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-800 transition-colors"
+          
+          <nav className="flex items-center space-x-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 px-0 hover:bg-accent"
             >
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-semibold">
-                  {userInfo.name.charAt(0).toUpperCase()}
-                </span>
-              </div>
-            </button>
-          </div>
+              <Bell className="h-4 w-4" />
+              <span className="sr-only">Notifications</span>
+            </Button>
+            
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 px-0 hover:bg-accent"
+            >
+              <Settings className="h-4 w-4" />
+              <span className="sr-only">Settings</span>
+            </Button>
+            
+            <ModeToggle />
+            
+            <div className="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">
+              U
+            </div>
+          </nav>
         </div>
       </div>
-    </nav>
+    </header>
   );
-};
+}
