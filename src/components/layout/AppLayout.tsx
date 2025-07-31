@@ -40,7 +40,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* iOS-style Status Bar */}
       <TopStatusBar />
       
@@ -53,7 +53,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
 
       {/* Secondary Actions Bar (if needed) */}
       {(rightActions.length > 0 || true) && (
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-800/50">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
           <div className="flex items-center space-x-4">
             {/* Page-specific left actions can go here */}
           </div>
@@ -64,8 +64,8 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
               <button
                 key={index}
                 onClick={action.action}
-                className={`p-2 rounded-full transition-colors hover:bg-gray-800 ${
-                  action.color || 'text-gray-400 hover:text-white'
+                className={`p-2 rounded-full transition-colors hover:bg-gray-100 ${
+                  action.color || 'text-gray-600 hover:text-gray-900'
                 }`}
                 title={action.label}
               >
@@ -74,18 +74,18 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
             ))}
 
             {/* Notifications */}
-            <button className="p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-gray-800 relative">
+            <button className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-100 relative">
               <Bell className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-gray-400 rounded-full"></span>
             </button>
 
             {/* User Menu */}
             <button
               onClick={() => setShowUserMenu(!showUserMenu)}
-              className="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-800 transition-colors"
+              className="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
-              <div className="w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-medium">
+              <div className="w-7 h-7 bg-gray-200 rounded-full flex items-center justify-center">
+                <span className="text-gray-700 text-xs font-medium">
                   {userInfo.name.charAt(0).toUpperCase()}
                 </span>
               </div>
